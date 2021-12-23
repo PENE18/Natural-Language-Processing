@@ -103,3 +103,13 @@ We will use [CountVectorizer](http://scikit-learn.org/stable/modules/generated/s
 We will compare multinomial Naive Bayes with [logistic regression](http://scikit-learn.org/stable/modules/linear_model.html#logistic-regression):
 
 > Logistic regression, despite its name, is a **linear model for classification** rather than regression. Logistic regression is also known in the literature as logit regression, maximum-entropy classification (MaxEnt) or the log-linear classifier. In this model, the probabilities describing the possible outcomes of a single trial are modeled using a logistic function.
+# 🧮 Tuning the vectorizer
+
+Thus far, we have been using the default parameters of [CountVectorizer:](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html)
+
+> 📌 However, the vectorizer is worth tuning, just like a model is worth tuning! Here are a few parameters that you might want to tune:
+
+> - 📌 **stop_words**: string {'english'}, list, or None (default)
+    - If 'english', a built-in stop word list for English is used.
+    - If a list, that list is assumed to contain stop words, all of which will be removed from the resulting tokens.
+    - If None, no stop words will be used.

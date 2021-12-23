@@ -3,7 +3,7 @@
 ***
 
 
-# 📝 Agenda
+# 📝 Table of content
 
 > 1. Representing text as numerical data
 > 2. Reading a text-based dataset into pandas

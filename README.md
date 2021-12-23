@@ -50,4 +50,44 @@ We will use [CountVectorizer](http://scikit-learn.org/stable/modules/generated/s
 > Let's create a function that will process the string in the message column, then we can just use **apply()** in pandas do process all the text in the DataFrame.
 
 >First removing punctuation. We can just take advantage of Python's built-in **string** library to get a quick list of all the possible punctuation:
->
+
+# 🧮 Vectorization
+
+> Currently, we have the messages as lists of tokens (also known as [lemmas](http://nlp.stanford.edu/IR-book/html/htmledition/stemming-and-lemmatization-1.html)) and now we need to convert each of those messages into a vector the SciKit Learn's algorithm models can work with.
+
+> Now we'll convert each message, represented as a list of tokens (lemmas) above, into a vector that machine learning models can understand.
+
+> We'll do that in three steps using the bag-of-words model:
+
+> 1. Count how many times does a word occur in each message (Known as term frequency)
+> 2. Weigh the counts, so that frequent tokens get lower weight (inverse document frequency)
+> 3. Normalize the vectors to unit length, to abstract from the original text length (L2 norm)
+
+> Let's begin the first step:
+
+> Each vector will have as many dimensions as there are unique words in the SMS corpus.  We will first use SciKit Learn's **CountVectorizer**. This model will convert a collection of text documents to a matrix of token counts.
+
+> We can imagine this as a 2-Dimensional matrix. Where the 1-dimension is the entire vocabulary (1 row per word) and the other dimension are the actual documents, in this case a column per text message. 
+
+> For example:
+
+<table border = “1“>
+<tr>
+<th></th> <th>Message 1</th> <th>Message 2</th> <th>...</th> <th>Message N</th> 
+</tr>
+<tr>
+<td><b>Word 1 Count</b></td><td>0</td><td>1</td><td>...</td><td>0</td>
+</tr>
+<tr>
+<td><b>Word 2 Count</b></td><td>0</td><td>0</td><td>...</td><td>0</td>
+</tr>
+<tr>
+<td><b>...</b></td> <td>1</td><td>2</td><td>...</td><td>0</td>
+</tr>
+<tr>
+<td><b>Word N Count</b></td> <td>0</td><td>1</td><td>...</td><td>1</td>
+</tr>
+</table>
+
+
+> Since there are so many messages, we can expect a lot of zero counts for the presence of that word in that document. Because of this, SciKit Learn will output a [Sparse Matrix](https://en.wikipedia.org/wiki/Sparse_matrix).

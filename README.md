@@ -32,13 +32,13 @@ We will use [CountVectorizer](http://scikit-learn.org/stable/modules/generated/s
 
 > In order to be able to **store such a matrix in memory** but also to **speed up operations**, implementations will typically use a **sparse representation** such as the implementations available in the `scipy.sparse` package.
 
-## 📋 **Summary:**
+### 📋 **Summary:**
 
 > - `vect.fit(train)` **learns the vocabulary** of the training data
 > - `vect.transform(train)` uses the **fitted vocabulary** to build a document-term matrix from the training data
 > - `vect.transform(test)` uses the **fitted vocabulary** to build a document-term matrix from the testing data (and **ignores tokens** it hasn't seen before)
 
-# 📑 Text Pre-processing
+### 📑 Text Pre-processing
 
 > Our main issue with our data is that it is all in text format (strings). The classification algorithms that we usally use need some sort of numerical feature vector in order to perform the classification task. There are actually many methods to convert a corpus to a vector format. The simplest is the `bag-of-words` approach, where each unique word in a text will be represented by one number.
 

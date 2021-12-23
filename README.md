@@ -113,3 +113,16 @@ Thus far, we have been using the default parameters of [CountVectorizer:](https:
     - If 'english', a built-in stop word list for English is used.
     - If a list, that list is assumed to contain stop words, all of which will be removed from the resulting tokens.
     - If None, no stop words will be used.
+
+> - 📌 **ngram_range**: tuple (min_n, max_n), default=(1, 1)
+    - The lower and upper boundary of the range of n-values for different n-grams to be extracted.
+    - All values of n such that min_n <= n <= max_n will be used.
+
+> - 📌 **max_df**: float in range [0.0, 1.0] or int, default=1.0
+    - When building the vocabulary, ignore terms that have a document frequency strictly higher than the given threshold (corpus-specific stop words).
+    - If float, the parameter represents a proportion of documents.
+    - If integer, the parameter represents an absolute count.
+
+> - 📌 **Guidelines for tuning CountVectorizer**:
+    - Use your knowledge of the problem and the text, and your understanding of the tuning parameters, to help you decide what parameters to tune and how to tune them.
+    - Experiment, and let the data tell you the best approach!
